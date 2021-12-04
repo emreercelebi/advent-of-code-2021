@@ -1,5 +1,6 @@
 import BinaryDiagnostic.BinaryDiagnostic;
 import Dive.Dive;
+import GiantSquid.GiantSquid;
 import SonarSweep.SonarSweep;
 
 class AdventOfCode {
@@ -7,5 +8,6 @@ class AdventOfCode {
     new SonarSweep();
     new Dive();
     new BinaryDiagnostic();
+    new GiantSquid();
   }
 }
