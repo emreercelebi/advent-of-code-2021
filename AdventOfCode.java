@@ -2,6 +2,7 @@ import BinaryDiagnostic.BinaryDiagnostic;
 import Dive.Dive;
 import GiantSquid.GiantSquid;
 import HydrothermalVenture.HydrothermalVenture;
+import Lanternfish.Lanternfish;
 import SonarSweep.SonarSweep;
 
 class AdventOfCode {
@@ -11,5 +12,6 @@ class AdventOfCode {
     new BinaryDiagnostic();
     new GiantSquid();
     new HydrothermalVenture();
+    new Lanternfish();
   }
 }
