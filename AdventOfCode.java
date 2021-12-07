@@ -4,6 +4,7 @@ import GiantSquid.GiantSquid;
 import HydrothermalVenture.HydrothermalVenture;
 import Lanternfish.Lanternfish;
 import SonarSweep.SonarSweep;
+import TreacheryOfWhales.Whales;
 
 class AdventOfCode {
   public static void main(String[] args) throws Exception{
@@ -13,5 +14,6 @@ class AdventOfCode {
     new GiantSquid();
     new HydrothermalVenture();
     new Lanternfish();
+    new Whales();
   }
 }
