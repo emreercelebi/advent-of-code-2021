@@ -3,6 +3,7 @@ import Dive.Dive;
 import GiantSquid.GiantSquid;
 import HydrothermalVenture.HydrothermalVenture;
 import Lanternfish.Lanternfish;
+import SevenSegmentSearch.SevenSegmentSearch;
 import SonarSweep.SonarSweep;
 import TreacheryOfWhales.Whales;
 
@@ -15,5 +16,6 @@ class AdventOfCode {
     new HydrothermalVenture();
     new Lanternfish();
     new Whales();
+    new SevenSegmentSearch();
   }
 }
