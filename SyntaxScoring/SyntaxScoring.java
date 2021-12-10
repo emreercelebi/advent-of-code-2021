@@ -1,48 +1,28 @@
 package SyntaxScoring;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Stack;
 
+import Helpers.Helpers;
+
 public class SyntaxScoring {
   private static final String FILE_NAME = "input.txt";
 
-  File file;
   List<String> lines;
 
   public SyntaxScoring() {
     URL path = SyntaxScoring.class.getResource(FILE_NAME);
 
-    this.file = new File(path.getFile());
-    this.lines = new ArrayList<>();
-
-    try {
-      this.init();
-    } catch (Exception e) {
-      System.out.println("error reading file");
-      System.out.println(e.getMessage());
-    }
+    this.lines = Helpers.getFileLines(path);
 
     int part1Result = this.runPart1();
     long part2Result = this.runPart2();
 
     System.out.println("Syntax Scoring part 1: " + part1Result);
     System.out.println("Syntax Scoring part 2: " + part2Result);
-  }
-
-  private void init() throws Exception {
-    BufferedReader br = new BufferedReader(new FileReader(this.file));
-
-    String line;
-
-    while ((line = br.readLine()) != null) {
-      this.lines.add(line);
-    }
   }
 
   private int runPart1() {
