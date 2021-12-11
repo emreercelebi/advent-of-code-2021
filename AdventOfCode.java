@@ -1,5 +1,6 @@
 import BinaryDiagnostic.BinaryDiagnostic;
 import Dive.Dive;
+import DumboOctopus.DumboOctopus;
 import GiantSquid.GiantSquid;
 import HydrothermalVenture.HydrothermalVenture;
 import Lanternfish.Lanternfish;
@@ -21,5 +22,6 @@ class AdventOfCode {
     new SevenSegmentSearch();
     new SmokeBasin();
     new SyntaxScoring();
+    new DumboOctopus();
   }
 }
