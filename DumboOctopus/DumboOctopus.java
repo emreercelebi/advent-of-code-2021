@@ -64,14 +64,15 @@ public class DumboOctopus {
   }
 
   private int runPart2() {
-    for (int i = 0; i < 400; i++) {
-      int flashes = this.simulateOneStep();
-      if (flashes == this.grid.length * this.grid[0].length) {
-        return i + 1;
-      }
+    int flashes = 0;
+    int index = 0;
+
+    while (flashes != this.grid.length * this.grid[0].length) {
+      index++;
+      flashes = this.simulateOneStep();
     }
 
-    return -1;
+    return index;
   }
 
   private int simulate(int steps) {
