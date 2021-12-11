@@ -78,19 +78,7 @@ public class DumboOctopus {
   private int simulate(int steps) {
     int count = 0;
     for (int i = 0; i < steps; i++) {
-      for (int row = 0; row < this.grid.length; row++) {
-        for (int col = 0; col < this.grid[row].length; col++) {
-          this.grid[row][col]++;
-        }
-      }
-
-      for (int row = 0; row < this.grid.length; row++) {
-        for (int col = 0; col < this.grid[row].length; col++) {
-          if (this.grid[row][col] > 9) {
-            count += flash(row, col);
-          }
-        }
-      }
+      count += simulateOneStep();
     }
     return count;
   }
