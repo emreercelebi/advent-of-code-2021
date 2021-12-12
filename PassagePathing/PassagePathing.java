@@ -37,6 +37,6 @@ public class PassagePathing {
   }
 
   private int runPart2() {
-    return 0;
+    return this.graph.countPathsOneSmallCanBeVisitedTwice();
   }
 }

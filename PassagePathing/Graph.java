@@ -104,4 +104,39 @@ public class Graph {
 
     return totalPaths;
   }
+
+  public int countPathsOneSmallCanBeVisitedTwice() {
+    Node start = graph.get("start");
+    Node end = graph.get("end");
+    Set<Node> visited = new HashSet<>();
+
+    visited.add(start);
+    return countPathsOneSmallCanBeVisitedTwice(start, end, visited, false);
+  }
+
+  private int countPathsOneSmallCanBeVisitedTwice(Node curr, Node end, Set<Node> visited, boolean hasVisitedASmallTwice) {
+    if (curr == end) {
+      return 1;
+    }
+
+    int totalPaths = 0;
+
+    for (Node n : curr.getNeighbors()) {
+      if (n.shouldOnlyVisitOnce()) {
+        if (!visited.contains(n)) {
+          visited.add(n);
+          totalPaths += countPathsOneSmallCanBeVisitedTwice(n, end, visited, hasVisitedASmallTwice);
+          visited.remove(n);
+        } else {
+          if (!hasVisitedASmallTwice && !n.isStart() && !n.isEnd()) {
+            totalPaths += countPathsOneSmallCanBeVisitedTwice(n, end, visited, true);
+          }
+        }
+      } else {
+        totalPaths += countPathsOneSmallCanBeVisitedTwice(n, end, visited, hasVisitedASmallTwice);
+      }
+    }
+
+    return totalPaths;
+  }
 }
