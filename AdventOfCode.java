@@ -4,6 +4,7 @@ import DumboOctopus.DumboOctopus;
 import GiantSquid.GiantSquid;
 import HydrothermalVenture.HydrothermalVenture;
 import Lanternfish.Lanternfish;
+import PassagePathing.PassagePathing;
 import SevenSegmentSearch.SevenSegmentSearch;
 import SmokeBasin.SmokeBasin;
 import SonarSweep.SonarSweep;
@@ -23,5 +24,6 @@ class AdventOfCode {
     new SmokeBasin();
     new SyntaxScoring();
     new DumboOctopus();
+    new PassagePathing();
   }
 }
