@@ -9,6 +9,7 @@ import SevenSegmentSearch.SevenSegmentSearch;
 import SmokeBasin.SmokeBasin;
 import SonarSweep.SonarSweep;
 import SyntaxScoring.SyntaxScoring;
+import TransparentOragami.TransparentOragami;
 import TreacheryOfWhales.Whales;
 
 class AdventOfCode {
@@ -25,5 +26,6 @@ class AdventOfCode {
     new SyntaxScoring();
     new DumboOctopus();
     new PassagePathing();
+    new TransparentOragami();
   }
 }
