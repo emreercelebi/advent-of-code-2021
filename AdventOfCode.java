@@ -1,6 +1,7 @@
 import BinaryDiagnostic.BinaryDiagnostic;
 import Dive.Dive;
 import DumboOctopus.DumboOctopus;
+import ExtendedPolymerization.ExtendedPolymerization;
 import GiantSquid.GiantSquid;
 import HydrothermalVenture.HydrothermalVenture;
 import Lanternfish.Lanternfish;
@@ -27,5 +28,6 @@ class AdventOfCode {
     new DumboOctopus();
     new PassagePathing();
     new TransparentOragami();
+    new ExtendedPolymerization();
   }
 }
