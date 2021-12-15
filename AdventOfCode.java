@@ -1,4 +1,5 @@
 import BinaryDiagnostic.BinaryDiagnostic;
+import Chiton.Chiton;
 import Dive.Dive;
 import DumboOctopus.DumboOctopus;
 import ExtendedPolymerization.ExtendedPolymerization;
@@ -29,5 +30,6 @@ class AdventOfCode {
     new PassagePathing();
     new TransparentOragami();
     new ExtendedPolymerization();
+    new Chiton();
   }
 }
