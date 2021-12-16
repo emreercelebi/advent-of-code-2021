@@ -1,6 +1,7 @@
 package PacketDecoder;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,7 +25,7 @@ public class PacketDecoder {
     int part1Result = this.runPart1();
 
     this.init();
-    int part2Result = this.runPart2();
+    long part2Result = this.runPart2();
 
     System.out.println("Packet Decoder part 1: " + part1Result);
     System.out.println("Packet Decoder part 2: " + part2Result);
@@ -71,14 +72,14 @@ public class PacketDecoder {
     return this.versionTotal;
   }
 
-  private int runPart2() {
-    return 0;
+  private long runPart2() {
+    return processPacket(this.binaryString).value;
   }
 
-  private int processPacket(String bin) {
+  private Packet processPacket(String bin) {
     int packetLength = 6;
-    int version = binaryToInt(bin.substring(0, 3));
-    int typeId = binaryToInt(bin.substring(3, 6));
+    int version = (int)binaryToInt(bin.substring(0, 3));
+    int typeId = (int)binaryToInt(bin.substring(3, 6));
     boolean isLiteral = typeId == 4;
     
     this.versionTotal += version;
@@ -94,39 +95,82 @@ public class PacketDecoder {
         binaryResult.append(bin.substring(index + indexOffset + 1, index + indexOffset + 5));
         index += 5;
       } while (group != '0');
+
+      return new Packet(binaryToInt(binaryResult.toString()), packetLength);
     } else {
       char lengthTypeId = bin.charAt(6);
       packetLength++;
+      List<Long> values = new ArrayList<>();
       if (lengthTypeId == '0') {
-        int subPacketLength = binaryToInt(bin.substring(7, 22));
-        String subPackets = bin.substring(22, 22 + subPacketLength);
+        long subPacketLength = binaryToInt(bin.substring(7, 22));
+        String subPackets = bin.substring(22, 22 + (int)subPacketLength);
         packetLength += subPacketLength + 15;
         int sbl = 0;
         while (sbl < subPacketLength) {
-          sbl += processPacket(subPackets.substring(sbl));
+          Packet p = processPacket(subPackets.substring(sbl));
+          sbl += p.length;
+          values.add(p.value);
         }
       } else {
-        int numSubPackets = binaryToInt(bin.substring(7, 18));
+        long numSubPackets = binaryToInt(bin.substring(7, 18));
         packetLength += 11;
         int index = 18;
         for (int i = 0; i < numSubPackets; i++) {
-          int sbl = processPacket(bin.substring(index));
-          index += sbl;
-          packetLength += sbl; 
+          Packet p = processPacket(bin.substring(index));
+          index += p.length;
+          packetLength += p.length;
+          values.add(p.value);
         }
       }
+
+      long result = performOperation(values, typeId);
+      return new Packet(result, packetLength);
     }
-    return packetLength;
   }
 
-
-
-  private int binaryToInt(String bin) {
-    int result = 0;
+  private long binaryToInt(String bin) {
+    long result = 0;
     for (int i = bin.length() - 1; i >= 0; i--) {
       if (bin.charAt(i) == '1') {
         int exp = bin.length() - 1 - i;
         result += Math.pow(2, exp);
+      }
+    }
+    return result;
+  }
+
+  private long performOperation(List<Long> values, int op) {
+    long result = 0;
+    if (op == 0) {
+      for (long val : values) {
+        result += val;
+      }
+    } else if (op == 1) {
+      result = 1;
+      for (long val : values) {
+        result *= val;
+      }
+    } else if (op == 2) {
+      result = Long.MAX_VALUE;
+      for (long val : values) {
+        result = Math.min(result, val);
+      }
+    } else if (op == 3) {
+      result = Long.MIN_VALUE;
+      for (long val : values) {
+        result = Math.max(result, val);
+      }
+    } else if (op == 5) {
+      if (values.get(0) > values.get(1)) {
+        result = 1;
+      }
+    } else if (op == 6) {
+      if (values.get(0) < values.get(1)) {
+        result = 1;
+      }
+    } else {
+      if (values.get(0).equals(values.get(1))) {
+        result = 1;
       }
     }
     return result;
