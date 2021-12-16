@@ -6,6 +6,7 @@ import ExtendedPolymerization.ExtendedPolymerization;
 import GiantSquid.GiantSquid;
 import HydrothermalVenture.HydrothermalVenture;
 import Lanternfish.Lanternfish;
+import PacketDecoder.PacketDecoder;
 import PassagePathing.PassagePathing;
 import SevenSegmentSearch.SevenSegmentSearch;
 import SmokeBasin.SmokeBasin;
@@ -16,20 +17,21 @@ import TreacheryOfWhales.Whales;
 
 class AdventOfCode {
   public static void main(String[] args) throws Exception{
-    new SonarSweep();
-    new Dive();
-    new BinaryDiagnostic();
-    new GiantSquid();
-    new HydrothermalVenture();
-    new Lanternfish();
-    new Whales();
-    new SevenSegmentSearch();
-    new SmokeBasin();
-    new SyntaxScoring();
-    new DumboOctopus();
-    new PassagePathing();
-    new TransparentOragami();
-    new ExtendedPolymerization();
-    new Chiton();
+    // new SonarSweep();
+    // new Dive();
+    // new BinaryDiagnostic();
+    // new GiantSquid();
+    // new HydrothermalVenture();
+    // new Lanternfish();
+    // new Whales();
+    // new SevenSegmentSearch();
+    // new SmokeBasin();
+    // new SyntaxScoring();
+    // new DumboOctopus();
+    // new PassagePathing();
+    // new TransparentOragami();
+    // new ExtendedPolymerization();
+    // new Chiton();
+    new PacketDecoder();
   }
 }
