@@ -14,24 +14,26 @@ import SonarSweep.SonarSweep;
 import SyntaxScoring.SyntaxScoring;
 import TransparentOragami.TransparentOragami;
 import TreacheryOfWhales.Whales;
+import TrickShot.TrickShot;
 
 class AdventOfCode {
   public static void main(String[] args) throws Exception{
-    new SonarSweep();
-    new Dive();
-    new BinaryDiagnostic();
-    new GiantSquid();
-    new HydrothermalVenture();
-    new Lanternfish();
-    new Whales();
-    new SevenSegmentSearch();
-    new SmokeBasin();
-    new SyntaxScoring();
-    new DumboOctopus();
-    new PassagePathing();
-    new TransparentOragami();
-    new ExtendedPolymerization();
-    new Chiton();
-    new PacketDecoder();
+    // new SonarSweep();
+    // new Dive();
+    // new BinaryDiagnostic();
+    // new GiantSquid();
+    // new HydrothermalVenture();
+    // new Lanternfish();
+    // new Whales();
+    // new SevenSegmentSearch();
+    // new SmokeBasin();
+    // new SyntaxScoring();
+    // new DumboOctopus();
+    // new PassagePathing();
+    // new TransparentOragami();
+    // new ExtendedPolymerization();
+    // new Chiton();
+    // new PacketDecoder();
+    new TrickShot();
   }
 }
